@@ -28,7 +28,7 @@ resource "scaleway_lb_backend" "def_lb_backend" {
   name             = "def-backend"
   forward_protocol = "http"
   forward_port     = "80"
-  server_ips       = [scaleway_vpc_public_gateway_dhcp_reservation.def_pg_dhcp_res_def_instance.ip_address]
+  server_ips       = [data.scaleway_ipam_ip.def_private_ip.address]
 
   health_check_http {
     uri    = "/"
