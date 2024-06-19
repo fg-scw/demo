@@ -1,10 +1,10 @@
 resource "scaleway_lb_ip" "def_lb_ip" {}
 
 resource "scaleway_lb" "def_lb" {
-  name  = "def-load-balancer"
+  name   = "def-load-balancer"
   ip_ids = [scaleway_lb_ip.def_lb_ip.id]
-  zone  = var.scw_zone
-  type  = var.def_lb_type
+  zone   = var.scw_zone
+  type   = var.def_lb_type
 
   private_network {
     private_network_id = scaleway_vpc_private_network.def_pn.id
@@ -17,10 +17,10 @@ resource "scaleway_lb" "def_lb" {
 }
 
 resource "scaleway_lb_frontend" "def_lb_frontend" {
-  lb_id           = scaleway_lb.def_lb.id
-  backend_id      = scaleway_lb_backend.def_lb_backend.id
-  name            = "def-frontend"
-  inbound_port    = "80"
+  lb_id        = scaleway_lb.def_lb.id
+  backend_id   = scaleway_lb_backend.def_lb_backend.id
+  name         = "def-frontend"
+  inbound_port = "80"
 }
 
 resource "scaleway_lb_backend" "def_lb_backend" {

@@ -1,6 +1,6 @@
 provider "scaleway" {
-  zone   = "fr-par-2"
-  region = "fr-par"
+  zone       = "fr-par-2"
+  region     = "fr-par"
   project_id = "71cf4c5b-2be9-435d-a2a1-9b912ef41e73"
 }
 
